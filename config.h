@@ -62,16 +62,25 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]     = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+
+static const char *volup[]       = { "/home/aidan/Aidan/FD/script/vol-up.sh",  NULL };
+static const char *voldown[]     = { "/home/aidan/Aidan/FD/script/vol-down.sh",  NULL };
+static const char *voltoggle[]   = { "/home/aidan/Aidan/FD/script/vol-toggle.sh",  NULL };
+
+#include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier            key                      function        argument */
-	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_slash,                spawn,          {.v = dmenucmd } },
+	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_o,                    spawn,          {.v = browsercmd } },
 	{ MODKEY,              XK_q,                    killclient,     {0} },
+	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = volup } },
+	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = voldown } },
+	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = voltoggle } },
 
 	{ MODKEY,              XK_j,                    focusstack,     {.i = +1 } },
 	{ MODKEY,              XK_k,                    focusstack,     {.i = -1 } },
