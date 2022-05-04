@@ -84,6 +84,9 @@ static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufo
 static const char *termcmd[]     = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 
+static const char *briup[]       = { "/home/aidan/Aidan/FD/script/bri-up.sh",  NULL };
+static const char *bridown[]     = { "/home/aidan/Aidan/FD/script/bri-down.sh",  NULL };
+
 static const char *volup[]       = { "/home/aidan/Aidan/FD/script/vol-up.sh",  NULL };
 static const char *voldown[]     = { "/home/aidan/Aidan/FD/script/vol-down.sh",  NULL };
 static const char *voltoggle[]   = { "/home/aidan/Aidan/FD/script/vol-toggle.sh",  NULL };
@@ -96,6 +99,8 @@ static Key keys[] = {
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_o,                    spawn,          {.v = browsercmd } },
 	{ MODKEY,              XK_q,                    killclient,     {0} },
+	{ 0,                   XF86XK_MonBrightnessUp,  spawn,          {.v = briup } },
+	{ 0,                   XF86XK_MonBrightnessDown,spawn,          {.v = bridown } },
 	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = volup } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = voldown } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = voltoggle } },
