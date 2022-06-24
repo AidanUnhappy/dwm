@@ -95,9 +95,9 @@ static const char *voltoggle[]   = { "/home/aidan/Aidan/FD/script/vol-toggle.sh"
 
 static Key keys[] = {
 	/* modifier            key                      function        argument */
-	{ MODKEY,              XK_slash,                spawn,          {.v = dmenucmd } },
+	{ MODKEY,              XK_o,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
-	{ MODKEY,              XK_o,                    spawn,          {.v = browsercmd } },
+	{ MODKEY,              XK_backslash,            spawn,          {.v = browsercmd } },
 	{ MODKEY,              XK_q,                    killclient,     {0} },
 	{ 0,                   XF86XK_MonBrightnessUp,  spawn,          {.v = briup } },
 	{ 0,                   XF86XK_MonBrightnessDown,spawn,          {.v = bridown } },
